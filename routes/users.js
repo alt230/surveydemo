@@ -20,8 +20,8 @@ router.get('/:survey_id/destroy', function(req, res) {
   });
 });
 
-router.post('/:survey_id/tasks/create', function (req, res) {
-  models.Task.create({
+router.post('/:survey_id/questions/create', function (req, res) {
+  models.Question.create({
     title: req.body.title,
     SurveyId: req.params.survey_id
   }).then(function() {
@@ -29,10 +29,10 @@ router.post('/:survey_id/tasks/create', function (req, res) {
   });
 });
 
-router.get('/:survey_id/tasks/:task_id/destroy', function (req, res) {
-  models.Task.destroy({
+router.get('/:survey_id/questions/:question_id/destroy', function (req, res) {
+  models.Question.destroy({
     where: {
-      id: req.params.task_id
+      id: req.params.question_id
     }
   }).then(function() {
     res.redirect('/');

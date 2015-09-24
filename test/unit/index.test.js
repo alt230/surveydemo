@@ -3,9 +3,9 @@
 var expect = require('expect.js');
 
 describe('models/index', function () {
-  it('returns the task model', function () {
+  it('returns the question model', function () {
     var models = require('../../models');
-    expect(models.Task).to.be.ok();
+    expect(models.Question).to.be.ok();
   });
 
   it('returns the survey model', function () {

@@ -10,7 +10,7 @@ describe('survey creation page', function () {
     this.models = require('../../models');
 
     return Bluebird.all([
-      this.models.Task.destroy({ truncate: true }),
+      this.models.Question.destroy({ truncate: true }),
       this.models.Survey.destroy({ truncate: true })
     ]);
   });
@@ -27,9 +27,9 @@ describe('survey creation page', function () {
 
   it('lists the tickets for the survey if available', function (done) {
     this.models.Survey.create({ surveyname: 'johndoe' }).bind(this).then(function (survey) {
-      return this.models.Task.create({ title: 'johndoe task', SurveyId: survey.id });
+      return this.models.Question.create({ title: 'johndoe question', SurveyId: survey.id });
     }).then(function () {
-      request(app).get('/').expect(/johndoe task/, done);
+      request(app).get('/').expect(/johndoe question/, done);
     });
   });
 });

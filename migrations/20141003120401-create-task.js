@@ -3,7 +3,7 @@
 module.exports = {
   up: function(migration, DataTypes, done) {
     migration
-      .createTable('Tasks', {
+      .createTable('Questions', {
         title: DataTypes.STRING
       })
       .complete(done)
@@ -11,7 +11,7 @@ module.exports = {
 
   down: function(migration, DataTypes, done) {
     migration
-      .dropTable('Tasks')
+      .dropTable('Questions')
       .complete(done)
   }
 };

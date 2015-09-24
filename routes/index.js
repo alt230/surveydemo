@@ -4,7 +4,7 @@ var router  = express.Router();
 
 router.get('/', function(req, res) {
   models.Survey.findAll({
-    include: [ models.Task ]
+    include: [ models.Question ]
   }).then(function(surveys) {
     res.render('index', {
       title: 'Express',

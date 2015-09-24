@@ -2,17 +2,17 @@
 
 var expect = require('expect.js');
 
-describe('models/task', function () {
+describe('models/question', function () {
   beforeEach(function () {
     this.Survey = require('../../models').Survey;
-    this.Task = require('../../models').Task;
+    this.Question = require('../../models').Question;
   });
 
   describe('create', function () {
-    it('creates a task', function () {
+    it('creates a question', function () {
       return this.Survey.create({ surveyname: 'johndoe' }).bind(this).then(function (survey) {
-        return this.Task.create({ title: 'a title', SurveyId: survey.id }).then(function (task) {
-          expect(task.title).to.equal('a title');
+        return this.Question.create({ title: 'a title', SurveyId: survey.id }).then(function (question) {
+          expect(question.title).to.equal('a title');
         });
       });
     });

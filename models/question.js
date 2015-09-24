@@ -1,12 +1,12 @@
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-  var Task = sequelize.define("Task", {
+  var Question = sequelize.define("Question", {
     title: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
-        Task.belongsTo(models.Survey, {
+        Question.belongsTo(models.Survey, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
@@ -16,5 +16,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return Task;
+  return Question;
 };
