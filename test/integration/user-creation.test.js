@@ -5,13 +5,13 @@ var Bluebird = require('bluebird');
 var expect   = require('expect.js');
 var request  = require('supertest');
 
-describe('user creation page', function () {
+describe('survey creation page', function () {
   beforeEach(function () {
     this.models = require('../../models');
 
     return Bluebird.all([
       this.models.Task.destroy({ truncate: true }),
-      this.models.User.destroy({ truncate: true })
+      this.models.Survey.destroy({ truncate: true })
     ]);
   });
 
@@ -19,15 +19,15 @@ describe('user creation page', function () {
     request(app).get('/').expect(200, done);
   });
 
-  it('lists a user if there is one', function (done) {
-    this.models.User.create({ username: 'johndoe' }).then(function () {
+  it('lists a survey if there is one', function (done) {
+    this.models.Survey.create({ surveyname: 'johndoe' }).then(function () {
       request(app).get('/').expect(/johndoe/, done);
     })
   });
 
-  it('lists the tickets for the user if available', function (done) {
-    this.models.User.create({ username: 'johndoe' }).bind(this).then(function (user) {
-      return this.models.Task.create({ title: 'johndoe task', UserId: user.id });
+  it('lists the tickets for the survey if available', function (done) {
+    this.models.Survey.create({ surveyname: 'johndoe' }).bind(this).then(function (survey) {
+      return this.models.Task.create({ title: 'johndoe task', SurveyId: survey.id });
     }).then(function () {
       request(app).get('/').expect(/johndoe task/, done);
     });

@@ -28,13 +28,13 @@ node_modules/.bin/express -f
 npm install
 npm install --save sequelize@2.0.0-rc1 sequelize-cli sqlite3
 node_modules/.bin/sequelize init
-node_modules/.bin/sequelize model:create --name User --attributes username:string
+node_modules/.bin/sequelize model:create --name Survey --attributes surveyname:string
 node_modules/.bin/sequelize model:create --name Task --attributes title:string
 ```
 
 You will now have a basic express application with some additional directories
 (config, models, migrations). Also you will find two migrations and models.
-One for the User and one for the Task.
+One for the Survey and one for the Task.
 
 In order to associate the models with each other, you need to change the models
 like this:
@@ -44,18 +44,18 @@ like this:
 // ...
 classMethods: {
   associate: function(models) {
-    Task.belongsTo(models.User);
+    Task.belongsTo(models.Survey);
   }
 }
 // ...
 ```
 
 ```js
-// user.js
+// survey.js
 // ...
 classMethods: {
   associate: function(models) {
-    User.hasMany(models.Task)
+    Survey.hasMany(models.Task)
   }
 }
 // ...

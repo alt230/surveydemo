@@ -3,12 +3,12 @@ var express = require('express');
 var router  = express.Router();
 
 router.get('/', function(req, res) {
-  models.User.findAll({
+  models.Survey.findAll({
     include: [ models.Task ]
-  }).then(function(users) {
+  }).then(function(surveys) {
     res.render('index', {
       title: 'Express',
-      users: users
+      surveys: surveys
     });
   });
 });

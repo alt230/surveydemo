@@ -4,14 +4,14 @@ var expect = require('expect.js');
 
 describe('models/task', function () {
   beforeEach(function () {
-    this.User = require('../../models').User;
+    this.Survey = require('../../models').Survey;
     this.Task = require('../../models').Task;
   });
 
   describe('create', function () {
     it('creates a task', function () {
-      return this.User.create({ username: 'johndoe' }).bind(this).then(function (user) {
-        return this.Task.create({ title: 'a title', UserId: user.id }).then(function (task) {
+      return this.Survey.create({ surveyname: 'johndoe' }).bind(this).then(function (survey) {
+        return this.Task.create({ title: 'a title', SurveyId: survey.id }).then(function (task) {
           expect(task.title).to.equal('a title');
         });
       });

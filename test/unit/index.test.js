@@ -8,8 +8,8 @@ describe('models/index', function () {
     expect(models.Task).to.be.ok();
   });
 
-  it('returns the user model', function () {
+  it('returns the survey model', function () {
     var models = require('../../models');
-    expect(models.User).to.be.ok();
+    expect(models.Survey).to.be.ok();
   });
 });
