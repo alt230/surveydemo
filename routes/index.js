@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
     include: [ models.Question ]
   }).then(function(surveys) {
     res.render('index', {
-      title: 'Express',
+      title: 'Admin > Survey ',
       surveys: surveys
     });
   });
