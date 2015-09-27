@@ -32,11 +32,6 @@ block content
             a(href="/surveys/" + survey.id + "/questions/" + question.id + "/destroy") Destroy
             | )
             ul
-              li
-                | Creating a new multiple choice answer:
-                form(action="/surveys/" + survey.id + "/questions/" + question.id + "/answers/create", method="post", style="display:inline")
-                  input(type="text", name="title")
-                  input(type="submit")
               each answer in question.Answers
                 li
                   = answer.title
@@ -44,3 +39,8 @@ block content
                   | (
                   a(href="/surveys/" + survey.id + "/questions/" + question.id + "/answers/" + answer.id + "/destroy") Destroy  
                   | )
+              li
+                | Creating a new multiple choice answer:
+                form(action="/surveys/" + survey.id + "/questions/" + question.id + "/answers/create", method="post", style="display:inline")
+                  input(type="text", name="title")
+                  input(type="submit")
