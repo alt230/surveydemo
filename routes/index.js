@@ -6,8 +6,8 @@ router.get('/', function(req, res) {
   models.Survey.findAll({
     include: [
       {
-        models.Question,
-        include: [Answer]
+        model: models.Question,
+        include: [models.Answer]
       }
     ]
   }).then(function(surveys) {
