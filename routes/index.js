@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
     ]
   }).then(function(surveys) {
     res.render('index', {
-      title: 'Admin > Survey ',
+      title: 'Admin / Survey ',
       surveys: surveys
     });
   });
