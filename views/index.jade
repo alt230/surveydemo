@@ -1,7 +1,8 @@
 extends layout
 
 block content
-  h1= title
+  div.navbar 
+    h1= title
 
   h2 Create a new Survey
   form(action="/surveys/create", method="post")
@@ -23,7 +24,7 @@ block content
       | )
       ul
         li
-          | Creating a new question:
+          | Create a new Survey question:
           form(action="/surveys/" + survey.id + "/questions/create", method="post", style="display: inline")
             input(type="text", name="title")
             input(type="submit").btn
