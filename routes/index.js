@@ -4,7 +4,12 @@ var router  = express.Router();
 
 router.get('/', function(req, res) {
   models.Survey.findAll({
-    include: [ models.Question ]
+    include: [
+      {
+        models.Question,
+        include: [Answer]
+      }
+    ]
   }).then(function(surveys) {
     res.render('index', {
       title: 'Admin > Survey ',
