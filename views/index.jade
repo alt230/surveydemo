@@ -54,8 +54,10 @@ block content
                         = answer.picked
                       td  
                         a(href="/surveys/" + survey.id + "/questions/" + question.id + "/answers/" + answer.id + "/destroy") Destroy
-                  li
-                    | Creating a new multiple choice answer:
+                  tr.success
+                    td Create a new multiple choice answer:
                     form(action="/surveys/" + survey.id + "/questions/" + question.id + "/answers/create", method="post", style="display:inline")
-                      input(type="text", name="title")
-                      input(type="submit" value="Add Answer").btn
+                      td
+                        input(type="text", name="title")
+                      td
+                        input(type="submit" value="Add Answer").btn
