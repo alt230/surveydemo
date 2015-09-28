@@ -17,3 +17,7 @@ a {
 .navbar h1 {
   font-size: 24px;
 }
+
+li.survey {
+  list-style-type: none;
+}

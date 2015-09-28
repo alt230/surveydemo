@@ -22,7 +22,7 @@ block content
 
     ul
     each survey in surveys
-      li
+      li.survey
         = survey.surveyname
         | &nbsp;
         | (
@@ -44,7 +44,7 @@ block content
               ul
                 each answer in question.Answers
                   li
-                    = answer.title
+                    = answer.title + " [count: " + answer.picked + "]"
                     | &nbsp;
                     | (
                     a(href="/surveys/" + survey.id + "/questions/" + question.id + "/answers/" + answer.id + "/destroy") Destroy
