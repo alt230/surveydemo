@@ -3,7 +3,11 @@ extends layout
 block content
   div.container
     div.navbar.navbar-inverse.navbar-fixed-top
-      h1= title
+      div.nav.pull-left
+        h1= title
+      ul.nav.pull-right
+        li
+          a(href="#") Your Survey?
 
   div.container
     h2 Create a new Survey
