@@ -7,7 +7,7 @@ router.post('/create', function(req, res) {
   models.Survey.create({
     surveyname: req.body.surveyname
   }).then(function() {
-    res.redirect('/');
+    res.redirect('/admin');
   });
 });
 
@@ -17,7 +17,7 @@ router.get('/:survey_id/destroy', function(req, res) {
       id: req.params.survey_id
     }
   }).then(function() {
-    res.redirect('/');
+    res.redirect('/admin');
   });
 });
 
@@ -27,7 +27,7 @@ router.post('/:survey_id/questions/create', function (req, res) {
     title: req.body.title,
     SurveyId: req.params.survey_id
   }).then(function() {
-    res.redirect('/');
+    res.redirect('/admin');
   });
 });
 
@@ -37,7 +37,7 @@ router.get('/:survey_id/questions/:question_id/destroy', function (req, res) {
       id: req.params.question_id
     }
   }).then(function() {
-    res.redirect('/');
+    res.redirect('/admin');
   });
 });
 
@@ -47,7 +47,7 @@ router.post('/:survey_id/questions/:question_id/answers/create', function (req, 
     title: req.body.title,
     QuestionId: req.params.question_id
   }).then(function() {
-    res.redirect('/');
+    res.redirect('/admin');
   });
 });
 
@@ -57,7 +57,7 @@ router.get('/:survey_id/questions/:question_id/answers/:answer_id/destroy', func
       id: req.params.answer_id
     }
   }).then(function() {
-    res.redirect('/');
+    res.redirect('/admin');
   });
 });
 
