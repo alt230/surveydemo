@@ -7,8 +7,18 @@ block content
         h1= title
       ul.nav.pull-right
         li
-          a(href="#") Your Survey?
+          a(href="/admin") Your Survey?
 
   div.container
     div.row
       h2 Hello
+      = survey.surveyname
+      ul
+        each question in survey.Questions
+          li
+            = question.id + ". "
+            = question.title
+              ul
+                each answer in question.Answers
+                  li
+                    = answer.title
