@@ -5,11 +5,14 @@ var router  = express.Router();
 
 router.get('/', function(req, res) {
   models.Survey.find({
-    limit: 1,
-    order: Sequelize.fn('RAND'),
     include: [{
       model: models.Question,
-      include: [models.Answer],
+      order: Sequelize.fn('RAND'),
+      limit: 1,
+      include: [{
+        limit: 10,
+        model: models.Answer
+      }],
     }]
   }).then(function(survey) {
     res.render('index', {
