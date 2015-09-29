@@ -11,8 +11,8 @@ router.get('/', function(req, res) {
       }
     ]
   }).then(function(surveys) {
-    res.render('index', {
-      title: 'Random Great Survey ',
+    res.render('admin', {
+      title: 'Admin / Survey ',
       surveys: surveys
     });
   });
