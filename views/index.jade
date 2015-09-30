@@ -11,7 +11,7 @@ block content
 
   div.container
     div.row
-      h2 Hello
+      h4 Hi Guest. Please take some time to answer a few questions for us.
       = survey.surveyname
       ul
         each question in survey.Questions
@@ -21,7 +21,6 @@ block content
               ul
                 each answer in question.Answers
                   li
-                    input(type="radio", name="question" value="#{answer.title}")
                     = answer.title
                     form(action="/surveys/" + survey.id + "/questions/" + question.id + "/answers/" + answer.id, method="post", style="display: inline")
                       input(type="hidden", value="PUT", name="_method")
