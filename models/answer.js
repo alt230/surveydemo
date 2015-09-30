@@ -2,7 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Answer = sequelize.define('Answer', {
     title: DataTypes.STRING,
-    picked: DataTypes.INTEGER
+    picked: {type: DataTypes.INTEGER, allowNull: false, defaultValue: 0}
   }, {
     classMethods: {
       associate: function(models) {
