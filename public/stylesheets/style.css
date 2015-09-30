@@ -21,3 +21,7 @@ a {
 ul.survey > li {
   list-style-type: none;
 }
+
+li.answer {
+  list-style-type: none;
+}
