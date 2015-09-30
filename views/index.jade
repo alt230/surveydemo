@@ -10,17 +10,20 @@ block content
           a(href="/admin") Your Survey?
 
   div.container
-    h4 Hi Guest. Please take some time to answer a few questions for us.
-    = survey.surveyname
-    ul
-      each question in survey.Questions
-        li
-          = question.id + ". "
-          = question.title
-            ul
-              each answer in question.Answers
-                li
-                  = answer.title
-                  form(action="/surveys/" + survey.id + "/questions/" + question.id + "/answers/" + answer.id, method="post", style="display: inline")
-                    input(type="hidden", value="PUT", name="_method")
-                    input(type="submit" value="Vote").btn
+    div.welcome
+      h3 Hi Guest. Please take some time to answer a few questions for us.
+    div.jumbotron.survey_pres
+      div.survey_title
+        = survey.surveyname
+      ul
+        each question in survey.Questions
+          li
+            = question.id + ". "
+            = question.title
+              ul
+                each answer in question.Answers
+                  li
+                    = answer.title
+                    form(action="/surveys/" + survey.id + "/questions/" + question.id + "/answers/" + answer.id, method="post", style="display: inline")
+                      input(type="hidden", value="PUT", name="_method")
+                      input(type="submit" value="Vote").btn-info.btn

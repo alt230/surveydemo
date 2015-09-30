@@ -3,6 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+/* Admin */
 a {
   color: #00B7FF;
 }
@@ -27,4 +28,17 @@ ul.survey > li {
 
 li.answer {
   list-style-type: none;
+}
+
+/* Guest */
+.welcome {
+  padding: 40px 15px;
+  text-align: center;
+}
+.survey_pres {
+
+}
+.survey_title {
+  font-size: 20px;
+  margin-bottom: 5px;
 }
