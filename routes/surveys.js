@@ -61,5 +61,16 @@ router.get('/:survey_id/questions/:question_id/answers/:answer_id/destroy', func
   });
 });
 
+router.post('/:survey_id/questions/:question_id/answers/:answer_id', function (req, res) {
+  models.Answer.find({
+    where: {
+      id: req.params.answer_id
+    }
+  }).then(function(answer) {
+    answer.increment(['picked'], {by: 1})
+    res.redirect('/');
+  });
+});
+
 
 module.exports = router;
