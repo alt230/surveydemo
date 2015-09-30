@@ -17,6 +17,9 @@ a {
 .navbar h1 {
   font-size: 24px;
 }
+.btn {
+  margin: 3px;
+}
 
 ul.survey > li {
   list-style-type: none;

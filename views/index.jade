@@ -3,25 +3,24 @@ extends layout
 block content
   div.navbar.navbar-fixed-top.navbar-inverse
     div.container
-      div.nav.pull-left
-        h1= title
+      div.navbar-header
+        a.navbar-brand(href="#") Survey Time!
       ul.nav.pull-right
         li
           a(href="/admin") Your Survey?
 
   div.container
-    div.row
-      h4 Hi Guest. Please take some time to answer a few questions for us.
-      = survey.surveyname
-      ul
-        each question in survey.Questions
-          li
-            = question.id + ". "
-            = question.title
-              ul
-                each answer in question.Answers
-                  li
-                    = answer.title
-                    form(action="/surveys/" + survey.id + "/questions/" + question.id + "/answers/" + answer.id, method="post", style="display: inline")
-                      input(type="hidden", value="PUT", name="_method")
-                      input(type="submit" value="Vote").btn
+    h4 Hi Guest. Please take some time to answer a few questions for us.
+    = survey.surveyname
+    ul
+      each question in survey.Questions
+        li
+          = question.id + ". "
+          = question.title
+            ul
+              each answer in question.Answers
+                li
+                  = answer.title
+                  form(action="/surveys/" + survey.id + "/questions/" + question.id + "/answers/" + answer.id, method="post", style="display: inline")
+                    input(type="hidden", value="PUT", name="_method")
+                    input(type="submit" value="Vote").btn
