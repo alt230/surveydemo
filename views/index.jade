@@ -11,7 +11,7 @@ block content
 
 
   div.container
-    if survey.Questions
+    if survey.Questions.length !== 0
       div.welcome
         h3 Hi Guest. Please take some time to answer a few questions for us.
       div.jumbotron.survey_pres
@@ -32,3 +32,4 @@ block content
     else
       div.welcome
         h3 Hi there, there are no survey questions to answer at this time.
+        a(href="/restart") Start over?
