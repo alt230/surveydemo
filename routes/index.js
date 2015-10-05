@@ -5,6 +5,8 @@ var router  = express.Router();
 
 router.get('/', function(req, res) {
   var shown_questions = [];
+  // TODO
+  var shown_questions = [12939];
   models.Survey.find({
     include: [{
       where: {
