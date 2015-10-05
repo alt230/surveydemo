@@ -4,8 +4,14 @@ var Sequelize = require("sequelize");
 var router  = express.Router();
 
 router.get('/', function(req, res) {
+  var shown_questions = [];
   models.Survey.find({
     include: [{
+      where: {
+        id: {
+          notIn: shown_questions
+        }
+      },
       model: models.Question,
       order: Sequelize.fn('RAND'),
       limit: 1,
