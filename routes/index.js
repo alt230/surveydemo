@@ -4,9 +4,16 @@ var Sequelize = require("sequelize");
 var router  = express.Router();
 
 router.get('/', function(req, res) {
-  var shown_questions = [];
+
   // TODO
-  var shown_questions = [12939];
+  var shown_questions;
+  if (req.cookies['shown_questions']) {
+    shown_questions = JSON.parse(req.cookies['shown_questions']);
+  }
+  if (shown_questions.length == 0) {
+    shown_questions = [999];
+  }
+
   models.Survey.find({
     include: [{
       where: {
@@ -28,6 +35,9 @@ router.get('/', function(req, res) {
       survey: survey
     });
   });
+
 });
+
+
 
 module.exports = router;
