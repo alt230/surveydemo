@@ -20,7 +20,9 @@ block content
         ul
           each question in survey.Questions
             li
-              = question.id + ". "
+              span.qid
+                = question.id
+              | . 
               = question.title
                 ul
                   each answer in question.Answers
@@ -33,3 +35,15 @@ block content
       div.welcome
         h3 Hi there, there are no survey questions to answer at this time.
         a(href="/restart") Start over?
+
+  script.
+    var shown_questions = JSON.parse(Cookies.get('shown_questions'));
+
+    // jquery nastiness, rewrite. iterate through shown and visible elements to keep track on guest end
+    $('.qid').each(function(i){
+      var question_id = parseInt($(this).html());
+      if ( shown_questions.indexOf(question_id) == -1) {
+        shown_questions.push(question_id);
+      }
+    });
+    Cookies.set('shown_questions', shown_questions);
