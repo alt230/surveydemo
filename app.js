@@ -28,9 +28,10 @@ app.use('/surveys', surveys);
 app.use('/admin', admin);
 
 app.get('/restart',function(req, res){
-   res.clearCookie('shown_questions');
+   res.cookie('shown_questions', '[]');
    res.redirect('/');
 });
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
